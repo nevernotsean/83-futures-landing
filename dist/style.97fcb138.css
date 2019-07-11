@@ -1,0 +1,451 @@
+@font-face {
+  font-family: "rubikmedium";
+  src: url("rubik-medium-webfont.13a93e17.woff2") format("woff2"), url("rubik-medium-webfont.7dbc5cdc.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rubiklight";
+  src: url("rubik-light-webfont.a2cd7eaf.woff2") format("woff2"), url("rubik-light-webfont.af37ea3a.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rubikbold";
+  src: url("rubik-bold-webfont.1ab546c5.woff2") format("woff2"), url("rubik-bold-webfont.ed4177f8.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "rubikregular";
+  src: url("rubik-regular-webfont.27ce5ea8.woff2") format("woff2"), url("rubik-regular-webfont.927a46e3.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.center-xs {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.middle-xs {
+  align-items: center;
+}
+
+.mw-1200 {
+  max-width: 1200px;
+}
+
+.between-xs {
+  justify-content: space-between;
+}
+
+.blue {
+  color: #4993dd;
+}
+
+.red {
+  color: #e00a0a;
+}
+
+a {
+  color: #1e1e1e;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-family: "rubikmedium", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+body,
+p {
+  font-family: "rubikregular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+input,
+label {
+  font-family: "rubikregular", sans-serif;
+}
+
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-family: "rubikbold", sans-serif;
+  line-height: 1;
+  letter-spacing: 0.015em;
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-family: "rubiklight", sans-serif;
+  line-height: 1;
+  letter-spacing: 0.015em;
+}
+
+.h1 {
+  font-size: 32px;
+  line-height: 34px;
+}
+
+.rubiklight {
+  font-family: "rubiklight", sans-serif;
+}
+
+button,
+.button,
+form [type=submit] {
+  box-sizing: border-box;
+  -webkit-appearance: button;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  font-family: "rubikmedium", sans-serif;
+  font-size: 18px;
+  padding: 0.75em;
+  border-radius: 0.3em;
+  display: inline-block;
+  white-space: nowrap;
+}
+button.w1,
+.button.w1,
+form .w1[type=submit] {
+  width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  button.auto-size-xs,
+.button.auto-size-xs,
+form .auto-size-xs[type=submit] {
+    padding: 0.75em;
+    width: auto;
+  }
+}
+
+section {
+  display: block;
+}
+section.full {
+  min-height: 100vh;
+}
+
+.custom-container {
+  max-width: 1200px;
+}
+
+.three-up {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.image-fill img {
+  max-width: 100%;
+}
+
+.fixed-background {
+  background: url("hero.316905a1.jpg") no-repeat center right;
+  background-size: cover;
+}
+
+.site-logo {
+  width: 120px;
+  height: auto;
+  margin: 0;
+}
+
+.button-black, form [type=submit] {
+  transition: all 200ms ease;
+  background: #4993dd;
+  color: #fff;
+}
+.button-black:hover, form [type=submit]:hover {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  z-index: 1000;
+}
+.topbar.fixed-nav {
+  position: fixed;
+}
+@media only screen and (max-width: 48em) {
+  .topbar.fixed-nav {
+    position: static;
+    text-align: center;
+  }
+  .topbar.fixed-nav .site-logo {
+    width: auto;
+    height: 70px;
+    margin-top: 30px !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+}
+
+.square {
+  width: 100%;
+  max-width: 345px;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 48em) {
+  .square {
+    margin-bottom: 20px;
+    flex-basis: auto;
+  }
+}
+
+.etf-card.black {
+  background: url(card-bg.dae05ca6.svg) no-repeat center center;
+  color: #fff;
+  overflow: hidden;
+}
+.hero .etf-card {
+  margin: 0;
+  padding: 45px 70px;
+  align-self: center;
+  justify-self: center;
+  background: url(card-bg-wht.168f28de.svg) no-repeat center right;
+  background-size: cover;
+  max-width: 700px;
+}
+@media only screen and (max-width: 48em) {
+  .hero .etf-card {
+    padding: 20px;
+    margin-bottom: 200px;
+    max-width: 100%;
+    max-width: calc(100vw - 30px);
+  }
+}
+.etf-card .pre-title {
+  font-size: 28px;
+  margin: 0;
+}
+.etf-card .title {
+  font-size: 32px;
+  margin: 0;
+}
+.etf-card .big-title {
+  font-size: 60px;
+  margin: 0;
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .etf-card .big-title {
+    font-size: 5vw;
+  }
+}
+.square .etf-card {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+}
+.square .etf-card .card-inner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.square .etf-card .card-inner p {
+  min-height: 50px;
+  padding: 0 20px;
+}
+
+.product-card .product-image {
+  max-width: none;
+  width: 100%;
+  height: auto;
+}
+.product-card .product-brand {
+  font-family: "rubikregular", sans-serif;
+  font-size: 14px;
+  color: grey;
+  margin: 0;
+}
+.product-card .product-name {
+  font-family: "rubikmedium", sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.block-ui {
+  position: absolute;
+  z-index: 999;
+  left: 15px;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+footer {
+  margin-top: 100px;
+}
+footer a {
+  font-size: 14px;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.modal .site-logo {
+  width: 50px;
+  height: auto;
+}
+.modal .modal-content {
+  padding: 50px;
+}
+.modal .modal-content a.toggle-modal.close-modal {
+  cursor: pointer;
+  position: absolute;
+  z-index: 999;
+  top: 25px;
+  right: 25px;
+}
+
+form span {
+  display: flex;
+}
+form select {
+  display: block;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 1em 1.4em 0.9em 0.8em;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid grey;
+  box-shadow: none;
+  border-radius: 0.5em;
+  appearance: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  width: 100%;
+  height: 3.715em;
+}
+form .select-css::-ms-expand {
+  display: none;
+}
+form .select-css:hover {
+  border-color: #888;
+}
+form .select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+form .select-css option {
+  font-weight: normal;
+}
+form input[type=text],
+form input[type=date],
+form input[type=number],
+form input[type=email] {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 1em;
+  width: 100%;
+}
+
+.mouse-track-container {
+  position: relative;
+  position: relative;
+  z-index: 0;
+}
+.mouse-track-container .mouse-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-text-fill-color: transparent;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px;
+}
+.mouse-track-container .mouse-track.red {
+  -webkit-text-stroke-color: #e00a0a;
+}
+.mouse-track-container .mouse-track.blue {
+  -webkit-text-stroke-color: #4993dd;
+}
+.mouse-track-container + p {
+  position: relative;
+  z-index: 2;
+}
+
+.ticker {
+  overflow: hidden;
+}
+.ticker-inner {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.ticker .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  flex: 1 0 auto;
+}
+.ticker .box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.hidden-mobile {
+  display: none;
+}
+
+.desktop .hidden-mobile {
+  display: block !important;
+}
+
+/*# sourceMappingURL=style.97fcb138.css.map */
