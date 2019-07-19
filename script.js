@@ -169,17 +169,17 @@ const handleVerification = () => {
   const handleErr = e => {
     failCount = failCount + 1;
 
-    console.log(e.responseText);
+    console.log(e);
 
     $('.modal').modal('hide');
 
     if (failCount == 1) {
-      $('#verifyFail pre').html(e.responseText);
+      // $('#verifyFail pre').html(e.responseText);
       $('#verifyFail').modal();
     }
 
     if (failCount == 2) {
-      $('#verifyFailTwo pre').html(e.responseText);
+      // $('#verifyFailTwo pre').html(e.responseText);
       $('#verifyFailTwo').modal();
       failCount = 0;
     }
