@@ -244,6 +244,7 @@ var handleRegistration = function handleRegistration() {
 
 var handleVerification = function handleVerification() {
   var form = $('#verifyForm');
+  var failCount = 0;
   form.submit(function (e) {
     e.preventDefault();
     var formData = form.serialize();
@@ -258,15 +259,27 @@ var handleVerification = function handleVerification() {
   });
 
   var handleSuccess = function handleSuccess(e) {
+    failCount = 0;
     console.log(e);
     $('.modal').modal('hide');
     $('#verifySuccess').modal();
   };
 
   var handleErr = function handleErr(e) {
-    console.log(e);
+    failCount = failCount + 1;
+    console.log(e.responseText);
     $('.modal').modal('hide');
-    $('#verifyFail').modal();
+
+    if (failCount == 1) {
+      $('#verifyFail pre').html(e.responseText);
+      $('#verifyFail').modal();
+    }
+
+    if (failCount == 2) {
+      $('#verifyFailTwo pre').html(e.responseText);
+      $('#verifyFailTwo').modal();
+      failCount = 0;
+    }
   };
 };
 

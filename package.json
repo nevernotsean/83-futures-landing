@@ -13,6 +13,5 @@
   "devDependencies": {
     "cssnano": "^4.1.10",
     "sass": "^1.22.2"
-  },
-  "homepage": "http://www.miclients.com/users/sean/eighty-three-futures"
+  }
 }

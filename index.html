@@ -22,10 +22,10 @@
       </nav>
       <div class="row center-xs middle-xs px-3">
         <div class="etf-card col-12 col-md-8 center-xs text-center">
-          <h1 class="blue title" style="margin-bottom: 7px;">So Exclusive we need your organs for access.</h1>
+          <h1 class="blue title" style="margin-bottom: 7px;">So exclusive we need your organs for access.</h1>
           <p class="my-4">The 83 Futures store is open exclusively to registered organ donors.
-            Donors can save 8 lives and heal 75 more. That’s 83 Futures.
-            Register now. Don’t just get. Give.
+            Donors can save 8 lives and heal 75 more. That’s 83 Futures. 
+            Register now. Don’t just get. Give.            
           </p>
           <div class="row text-center mb-3">
             <div class="col-12 center-xs">
@@ -461,10 +461,30 @@
         <div class="row">
           <div class="col-12 text-center">
             <img class="site-logo mb-3" src="./assets/83_FUTURES_LOGO.svg" alt="">
-            <h3 class="mb-3">We don’t have you in the registry.</h3>
+            <h3 class="mb-3">We couldn’t find you in the National Donate Life registry.</h3>
+            <a href="#"  data-toggle="modal" data-dismiss="modal"
+            data-target="#verifyModal">Recheck information and try again</a>
+            <p class="mb-3 mt-5">State registered donors must register nationally. Gain access with fast and secure registration.</p>
+            <button class="w1 button button-black toggle-modal" data-toggle="modal" data-dismiss="modal"
+              data-target="#registerModal">Register Now</button>
+              <pre></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="verifyFailTwo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-12 text-center">
+            <img class="site-logo mb-3" src="./assets/83_FUTURES_LOGO.svg" alt="">
+            <h3 class="mb-3">We still couldn’t find you in the National Donate Life registry.</h3>
             <h4 class="mb-5">Gain access with fast and secure registration.</h4>
             <button class="w1 button button-black toggle-modal" data-toggle="modal" data-dismiss="modal"
               data-target="#registerModal">Register Now</button>
+              <pre></pre>
           </div>
         </div>
       </div>

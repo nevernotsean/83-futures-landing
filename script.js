@@ -141,6 +141,7 @@ const handleRegistration = () => {
 
 const handleVerification = () => {
   var form = $('#verifyForm');
+  var failCount = 0;
 
   form.submit(function(e) {
     e.preventDefault();
@@ -159,15 +160,29 @@ const handleVerification = () => {
   });
 
   const handleSuccess = e => {
+    failCount = 0;
     console.log(e);
     $('.modal').modal('hide');
     $('#verifySuccess').modal();
   };
 
   const handleErr = e => {
-    console.log(e);
+    failCount = failCount + 1;
+
+    console.log(e.responseText);
+
     $('.modal').modal('hide');
-    $('#verifyFail').modal();
+
+    if (failCount == 1) {
+      $('#verifyFail pre').html(e.responseText);
+      $('#verifyFail').modal();
+    }
+
+    if (failCount == 2) {
+      $('#verifyFailTwo pre').html(e.responseText);
+      $('#verifyFailTwo').modal();
+      failCount = 0;
+    }
   };
 };
 
