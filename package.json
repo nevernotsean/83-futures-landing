@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --no-cache",
-    "build": "rm -rf dist/* && rm -rf .cache && parcel build index.html --no-content-hash --no-minify --public-url ./"
+    "build": "rm -rf dist/* && rm -rf .cache && parcel build index.html --no-content-hash --no-minify --public-url ./ && npm run zip",
+    "zip": "zip -r ./dist/build.zip ./dist/."
   },
   "author": "",
   "license": "ISC",
