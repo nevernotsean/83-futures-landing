@@ -217,4 +217,16 @@ $(document).ready(function() {
       });
     }
   });
+
+  $('.modal').on('hidden.bs.modal', function(e) {
+    $('html').css({
+      overflow: 'scroll'
+    });
+  });
+
+  $('.modal').on('show.bs.modal', function(e) {
+    $('html').css({
+      overflow: 'hidden'
+    });
+  });
 });
