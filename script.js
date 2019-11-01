@@ -129,7 +129,7 @@ const handleRegistration = () => {
   });
 
   const handleSuccess = e => {
-    console.log(e);
+    // console.log(e);
     $('.modal').modal('hide');
     $('#registrationSuccess').modal();
   };
@@ -218,15 +218,11 @@ $(document).ready(function() {
     }
   });
 
-  $('.modal').on('hidden.bs.modal', function(e) {
-    $('html').css({
-      overflow: 'scroll'
-    });
+  $('.modal').on('hide.bs.modal', function(e) {
+    $('html').css({ overflow: 'scroll' });
   });
 
-  $('.modal').on('show.bs.modal', function(e) {
-    $('html').css({
-      overflow: 'hidden'
-    });
+  $('.modal').on('shown.bs.modal', function(e) {
+    $('html').css({ overflow: 'hidden' });
   });
 });
