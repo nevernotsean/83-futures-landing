@@ -232,7 +232,7 @@ var handleRegistration = function handleRegistration() {
   });
 
   var handleSuccess = function handleSuccess(e) {
-    console.log(e);
+    // console.log(e);
     $('.modal').modal('hide');
     $('#registrationSuccess').modal();
   };
@@ -313,12 +313,12 @@ $(document).ready(function () {
       });
     }
   });
-  $('.modal').on('hidden.bs.modal', function (e) {
+  $('.modal').on('hide.bs.modal', function (e) {
     $('html').css({
       overflow: 'scroll'
     });
   });
-  $('.modal').on('show.bs.modal', function (e) {
+  $('.modal').on('shown.bs.modal', function (e) {
     $('html').css({
       overflow: 'hidden'
     });
