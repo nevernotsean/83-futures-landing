@@ -18,8 +18,10 @@ function createTitles(e) {
   if (window.innerWidth < 768) {
     window.addEventListener('scroll', function(e) {
       var x = window.innerWidth / 2;
-      var y = window.scrollY % (this.window.innerWidth * 2);
-      // console.log(y);
+      var y = window.scrollY % (this.window.innerWidth * 2); // 800
+      var alt = ((window.scrollY - y) / (this.window.innerWidth * 2)) % 2;
+      if (alt == 0) y = this.window.innerWidth * 2 - y;
+
       updateElements($parent, x, y);
     });
   } else {
@@ -37,7 +39,7 @@ function updateElements(parent, x, y) {
   var newX = linearmap(x, 0, window.innerWidth, -1, 1);
   var newY = linearmap(y, 0, window.innerHeight, -1, 1);
 
-  var spacing = 12;
+  var spacing = 30;
   var opacityStep = 1 / els.length;
 
   TweenMax.set(els, {
