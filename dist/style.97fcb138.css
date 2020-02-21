@@ -1,24 +1,24 @@
 @font-face {
   font-family: "rubikmedium";
-  src: url("rubik-medium-webfont.13a93e17.woff2") format("woff2"), url("rubik-medium-webfont.7dbc5cdc.woff") format("woff");
+  src: url("/rubik-medium-webfont.13a93e17.woff2") format("woff2"), url("/rubik-medium-webfont.7dbc5cdc.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubiklight";
-  src: url("rubik-light-webfont.a2cd7eaf.woff2") format("woff2"), url("rubik-light-webfont.af37ea3a.woff") format("woff");
+  src: url("/rubik-light-webfont.a2cd7eaf.woff2") format("woff2"), url("/rubik-light-webfont.af37ea3a.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubikbold";
-  src: url("rubik-bold-webfont.1ab546c5.woff2") format("woff2"), url("rubik-bold-webfont.ed4177f8.woff") format("woff");
+  src: url("/rubik-bold-webfont.1ab546c5.woff2") format("woff2"), url("/rubik-bold-webfont.ed4177f8.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubikregular";
-  src: url("rubik-regular-webfont.27ce5ea8.woff2") format("woff2"), url("rubik-regular-webfont.927a46e3.woff") format("woff");
+  src: url("/rubik-regular-webfont.27ce5ea8.woff2") format("woff2"), url("/rubik-regular-webfont.927a46e3.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -55,7 +55,7 @@ body {
 
 body {
   color: #fff;
-  background: #1e1e1e;
+  background: #000000;
 }
 
 .mw-1200 {
@@ -71,7 +71,7 @@ body {
 }
 
 .red {
-  color: #e00a0a;
+  color: #40d1d3;
 }
 
 a {
@@ -180,7 +180,7 @@ section.full {
 }
 
 .fixed-background {
-  background: url("hero-cropped-1x1.2ffc7a79.jpg") no-repeat top right;
+  background: url("/hero-cropped-1x1.2ffc7a79.jpg") no-repeat top right;
   background-size: cover;
 }
 
@@ -193,11 +193,11 @@ section.full {
 .button-black, form [type=submit] {
   transition: all 200ms ease;
   background: #defe00;
-  color: #1e1e1e;
+  color: #000000;
 }
 .button-black:hover, form [type=submit]:hover {
   background: #fff;
-  color: #1e1e1e;
+  color: #000000;
 }
 
 .topbar {
@@ -240,8 +240,15 @@ section.full {
   }
 }
 
+.cover {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+}
+
 .etf-card.black {
-  background: url(card-bg.dae05ca6.svg) no-repeat center center;
+  background: url(/card-bg.dae05ca6.svg) no-repeat center center;
   color: #fff;
   overflow: hidden;
 }
@@ -250,16 +257,17 @@ section.full {
   padding: 45px 70px;
   align-self: center;
   justify-self: center;
-  background: url(card-bg-faded.b56db2e6.svg) no-repeat center right;
+  background: url(/card-bg-faded.b56db2e6.svg) no-repeat center right;
   background-size: cover;
   max-width: 700px;
 }
 @media only screen and (max-width: 48em) {
   .hero .etf-card {
-    padding: 20px;
+    padding: 20px 0px;
     margin-bottom: 200px;
     max-width: 100%;
     max-width: calc(100vw - 30px);
+    background: none;
   }
 }
 .etf-card .pre-title {
@@ -346,7 +354,7 @@ footer a {
 }
 .modal .modal-content {
   padding: 50px;
-  color: #1e1e1e;
+  color: #000000;
 }
 .modal .modal-content a.toggle-modal.close-modal {
   cursor: pointer;
@@ -419,7 +427,7 @@ form input[type=email] {
   -webkit-text-stroke-width: 2px;
 }
 .mouse-track-container .mouse-track.red {
-  -webkit-text-stroke-color: #e00a0a;
+  -webkit-text-stroke-color: #40d1d3;
 }
 .mouse-track-container .mouse-track.blue {
   -webkit-text-stroke-color: #defe00;
@@ -459,4 +467,4 @@ form input[type=email] {
   display: block !important;
 }
 
-/*# sourceMappingURL=style.97fcb138.css.map */
+/*# sourceMappingURL=/style.97fcb138.css.map */
