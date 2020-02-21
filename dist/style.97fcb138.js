@@ -117,216 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"script.js":[function(require,module,exports) {
-function createTitles(e) {
-  var titleCount = 5;
-  var $el = $(this),
-      $parent;
-  $el.wrap('<span class="mouse-track-container"></span>');
-  $parent = $el.parent();
+})({"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-  for (var i = 0; i < titleCount; i++) {
-    var clone = $el.clone();
-    clone.addClass('mouse-track').attr('data-distance', i);
-    $parent.append(clone);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  if (window.innerWidth < 768) {
-    window.addEventListener('scroll', function (e) {
-      var x = window.innerWidth / 2;
-      var y = window.scrollY % (this.window.innerWidth * 2); // 800
-
-      var alt = (window.scrollY - y) / (this.window.innerWidth * 2) % 2;
-      if (alt == 0) y = this.window.innerWidth * 2 - y;
-      updateElements($parent, x, y);
-    });
-  } else {
-    window.addEventListener('mousemove', function (e) {
-      var x = e.clientX;
-      var y = e.clientY;
-      updateElements($parent, x, y);
-    });
-  }
+  return bundleURL;
 }
 
-function updateElements(parent, x, y) {
-  var els = parent.find('.mouse-track');
-  var newX = linearmap(x, 0, window.innerWidth, -1, 1);
-  var newY = linearmap(y, 0, window.innerHeight, -1, 1);
-  var spacing = 30;
-  var opacityStep = 1 / els.length;
-  TweenMax.set(els, {
-    x: function x(i, el) {
-      return newX * i * spacing;
-    },
-    y: function y(i, el) {
-      return newY * i * spacing;
-    },
-    opacity: function opacity(i, el) {
-      return (1 - i * opacityStep) / 2;
-    },
-    scale: function scale(i) {
-      return 1 + i * opacityStep / 4;
-    }
-  });
-}
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-function linearmap(x, in_min, in_max, out_min, out_max) {
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
-
-var handleScroll = function handleScroll(e) {
-  TweenMax.to('.desktop nav .site-logo', 0.2, {
-    transformOrigin: 'top left',
-    scale: window.scrollY > 100 ? 0.5 : 1
-  });
-};
-
-var handleResize = function handleResize(e) {
-  var _window = window,
-      innerHeight = _window.innerHeight,
-      innerWidth = _window.innerWidth;
-
-  if (innerWidth > 1024) {
-    $('body').addClass('desktop');
-  } else {
-    $('body').removeClass('desktop');
-  }
-};
-
-var runTicker = function runTicker() {
-  var amount = $('.ticker-inner .box:not(.clone)').length;
-
-  var getLength = function getLength() {
-    var length = 0;
-    $('.ticker-inner .box:not(.clone)').each(function () {
-      length = length + $(this).outerWidth();
-    });
-    return length;
-  };
-
-  var clones1 = $('.ticker-inner .box').clone().addClass('clone');
-  clones1.appendTo('.ticker-inner');
-  TweenMax.fromTo('.ticker-inner', amount * 8, {
-    x: '0%'
-  }, {
-    x: -getLength() + 'px',
-    repeat: -1,
-    ease: 'linear'
-  });
-};
-
-var handleRegistration = function handleRegistration() {
-  // registration form
-  var $registerForm = $('#registerForm'); // handle submit
-
-  $registerForm.submit(function (e) {
-    e.preventDefault();
-    handleSuccess();
-    var formData = $registerForm.serialize();
-    var request = $.ajax({
-      type: 'POST',
-      url: $registerForm.attr('action'),
-      data: formData,
-      success: handleSuccess,
-      error: handleErr
-    });
-  });
-
-  var handleSuccess = function handleSuccess(e) {
-    // console.log(e);
-    $('.modal').modal('hide');
-    $('#registrationSuccess').modal();
-  };
-
-  var handleErr = function handleErr(e) {
-    console.log(e);
-  };
-};
-
-var handleVerification = function handleVerification() {
-  var form = $('#verifyForm');
-  var failCount = 0;
-  form.submit(function (e) {
-    e.preventDefault();
-    var formData = form.serialize();
-    var request = $.ajax({
-      type: 'POST',
-      url: form.attr('action'),
-      data: formData,
-      success: handleSuccess,
-      error: handleErr
-    }); // handleSuccess();
-    // handleErr();
-  });
-
-  var handleSuccess = function handleSuccess(e) {
-    failCount = 0;
-    console.log(e);
-    $('.modal').modal('hide');
-    $('#verifySuccess').modal();
-  };
-
-  var handleErr = function handleErr(e) {
-    failCount = failCount + 1;
-    console.log(e);
-    $('.modal').modal('hide');
-
-    if (failCount == 1) {
-      // $('#verifyFail pre').html(e.responseText);
-      $('#verifyFail').modal();
-    }
-
-    if (failCount == 2) {
-      // $('#verifyFailTwo pre').html(e.responseText);
-      $('#verifyFailTwo').modal();
-      failCount = 0;
-    }
-  };
-};
-
-$(document).ready(function () {
-  $('.big-title').each(createTitles); // ticker animation
-
-  runTicker();
-  window.addEventListener('scroll', handleScroll);
-  window.addEventListener('resize', handleResize);
-  handleResize();
-  handleRegistration();
-  handleVerification();
-
-  if (window.location.hash) {
-    var hash = window.location.hash;
-    var isModal = $(hash).hasClass('modal');
-
-    if (isModal) {
-      $(hash).modal('toggle');
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
   }
 
-  $('a').on('click', function (event) {
-    if (this.hash !== '') {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function () {
-        window.location.hash = hash;
-      });
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
-  });
-  $('.modal').on('hide.bs.modal', function (e) {
-    $('html').css({
-      overflow: 'scroll'
-    });
-  });
-  $('.modal').on('shown.bs.modal', function (e) {
-    $('html').css({
-      overflow: 'hidden'
-    });
-  });
-});
-},{}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./assets/fonts/rubik-medium-webfont.woff2":[["rubik-medium-webfont.13a93e17.woff2","assets/fonts/rubik-medium-webfont.woff2"],"assets/fonts/rubik-medium-webfont.woff2"],"./assets/fonts/rubik-medium-webfont.woff":[["rubik-medium-webfont.7dbc5cdc.woff","assets/fonts/rubik-medium-webfont.woff"],"assets/fonts/rubik-medium-webfont.woff"],"./assets/fonts/rubik-light-webfont.woff2":[["rubik-light-webfont.a2cd7eaf.woff2","assets/fonts/rubik-light-webfont.woff2"],"assets/fonts/rubik-light-webfont.woff2"],"./assets/fonts/rubik-light-webfont.woff":[["rubik-light-webfont.af37ea3a.woff","assets/fonts/rubik-light-webfont.woff"],"assets/fonts/rubik-light-webfont.woff"],"./assets/fonts/rubik-bold-webfont.woff2":[["rubik-bold-webfont.1ab546c5.woff2","assets/fonts/rubik-bold-webfont.woff2"],"assets/fonts/rubik-bold-webfont.woff2"],"./assets/fonts/rubik-bold-webfont.woff":[["rubik-bold-webfont.ed4177f8.woff","assets/fonts/rubik-bold-webfont.woff"],"assets/fonts/rubik-bold-webfont.woff"],"./assets/fonts/rubik-regular-webfont.woff2":[["rubik-regular-webfont.27ce5ea8.woff2","assets/fonts/rubik-regular-webfont.woff2"],"assets/fonts/rubik-regular-webfont.woff2"],"./assets/fonts/rubik-regular-webfont.woff":[["rubik-regular-webfont.927a46e3.woff","assets/fonts/rubik-regular-webfont.woff"],"assets/fonts/rubik-regular-webfont.woff"],"./assets/2020/hero-cropped-1x1.jpg":[["hero-cropped-1x1.2ffc7a79.jpg","assets/2020/hero-cropped-1x1.jpg"],"assets/2020/hero-cropped-1x1.jpg"],"./assets/card-bg.svg":[["card-bg.dae05ca6.svg","assets/card-bg.svg"],"assets/card-bg.svg"],"./assets/2020/card-bg-faded.svg":[["card-bg-faded.b56db2e6.svg","assets/2020/card-bg-faded.svg"],"assets/2020/card-bg-faded.svg"],"_css_loader":"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -530,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","script.js"], null)
-//# sourceMappingURL=/script.75da7f30.js.map
+},{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.97fcb138.js.map
