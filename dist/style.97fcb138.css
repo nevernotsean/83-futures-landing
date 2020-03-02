@@ -1,24 +1,24 @@
 @font-face {
   font-family: "rubikmedium";
-  src: url("/rubik-medium-webfont.13a93e17.woff2") format("woff2"), url("/rubik-medium-webfont.7dbc5cdc.woff") format("woff");
+  src: url("rubik-medium-webfont.13a93e17.woff2") format("woff2"), url("rubik-medium-webfont.7dbc5cdc.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubiklight";
-  src: url("/rubik-light-webfont.a2cd7eaf.woff2") format("woff2"), url("/rubik-light-webfont.af37ea3a.woff") format("woff");
+  src: url("rubik-light-webfont.a2cd7eaf.woff2") format("woff2"), url("rubik-light-webfont.af37ea3a.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubikbold";
-  src: url("/rubik-bold-webfont.1ab546c5.woff2") format("woff2"), url("/rubik-bold-webfont.ed4177f8.woff") format("woff");
+  src: url("rubik-bold-webfont.1ab546c5.woff2") format("woff2"), url("rubik-bold-webfont.ed4177f8.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "rubikregular";
-  src: url("/rubik-regular-webfont.27ce5ea8.woff2") format("woff2"), url("/rubik-regular-webfont.927a46e3.woff") format("woff");
+  src: url("rubik-regular-webfont.27ce5ea8.woff2") format("woff2"), url("rubik-regular-webfont.927a46e3.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -180,7 +180,7 @@ section.full {
 }
 
 .fixed-background {
-  background: url("/hero-cropped-1x1.2ffc7a79.jpg") no-repeat top right;
+  background: url("hero-cropped-1x1.2ffc7a79.jpg") no-repeat top right;
   background-size: cover;
 }
 
@@ -248,17 +248,17 @@ section.full {
 }
 
 .etf-card.black {
-  background: url(/card-bg.dae05ca6.svg) no-repeat center center;
+  background: url(card-bg.dae05ca6.svg) no-repeat center center;
   color: #fff;
   overflow: hidden;
 }
 .etf-card.green-outline {
-  background: url(/card-bg-outline-green.36ee88ee.svg) no-repeat center center;
+  background: url(card-bg-outline-green.36ee88ee.svg) no-repeat center center;
   color: #fff;
   overflow: hidden;
 }
 .etf-card.teal-outline {
-  background: url(/card-bg-outline-teal.fc747408.svg) no-repeat center center;
+  background: url(card-bg-outline-teal.fc747408.svg) no-repeat center center;
   color: #fff;
   overflow: hidden;
 }
@@ -267,7 +267,7 @@ section.full {
   padding: 45px 70px;
   align-self: center;
   justify-self: center;
-  background: url(/card-bg-faded.b56db2e6.svg) no-repeat center right;
+  background: url(card-bg-faded.b56db2e6.svg) no-repeat center right;
   background-size: cover;
   max-width: 700px;
 }
@@ -480,4 +480,4 @@ form input[type=email] {
   display: block !important;
 }
 
-/*# sourceMappingURL=/style.97fcb138.css.map */
+/*# sourceMappingURL=style.97fcb138.css.map */
