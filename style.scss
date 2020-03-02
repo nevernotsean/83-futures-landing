@@ -296,6 +296,18 @@ section {
     overflow: hidden;
   }
 
+  &.green-outline {
+    background: url(./assets/2020/card-bg-outline-green.svg) no-repeat center center;
+    color: $white;
+    overflow: hidden;
+  }
+
+  &.teal-outline {
+    background: url(./assets/2020/card-bg-outline-teal.svg) no-repeat center center;
+    color: $white;
+    overflow: hidden;
+  }
+
   .hero & {
     // margin: 0px 0 200px 0;
     margin: 0;
@@ -388,7 +400,7 @@ section {
   top: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 footer {
@@ -428,6 +440,13 @@ footer {
       //   bottom: 50px;
       //   left: 50px;
       // }
+    }
+
+    .button {
+      &:hover {
+        background: $black;
+        color: $white;
+      }
     }
   }
 }
